@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>随笔 on 我的博客</title><link>https://Wvan24.github.io/tags/%E9%9A%8F%E7%AC%94/</link><description>Recent content in 随笔 on 我的博客</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Tue, 28 Apr 2026 16:18:47 +0800</lastBuildDate><atom:link href="https://Wvan24.github.io/tags/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml"/><item><title>第一篇文章</title><link>https://Wvan24.github.io/posts/hello-world/</link><pubDate>Tue, 28 Apr 2026 16:18:47 +0800</pubDate><guid>https://Wvan24.github.io/posts/hello-world/</guid><description>&lt;h2 id="你好世界"&gt;你好，世界&lt;/h2&gt;
+&lt;p&gt;这是我博客的第一篇文章。&lt;/p&gt;
+&lt;p&gt;博客使用 Hugo 构建，托管在 GitHub Pages 上。&lt;/p&gt;
+&lt;h2 id="关于这个博客"&gt;关于这个博客&lt;/h2&gt;
+&lt;p&gt;这里会记录：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;技术笔记&lt;/li&gt;
+&lt;li&gt;学习心得&lt;/li&gt;
+&lt;li&gt;日常随笔&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
