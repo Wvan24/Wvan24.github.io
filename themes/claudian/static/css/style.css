@@ -151,11 +151,11 @@ nav ul {
 
 nav a {
   font-family: var(--font-pixel);
-  font-size: .5rem;
+  font-size: .65rem;
   color: var(--text-muted);
   text-decoration: none;
-  letter-spacing: .08em;
-  padding: .35rem .7rem;
+  letter-spacing: .06em;
+  padding: .45rem .9rem;
   background: var(--bg-card);
   border: 1px solid var(--border-gold);
   box-shadow: var(--shadow-sm);
@@ -322,13 +322,13 @@ nav a.active::after { width: 100%; }
 
 .tag {
   font-family: var(--font-pixel);
-  font-size: .45rem;
+  font-size: .6rem;
   background: var(--tag-bg);
   border: 1px solid var(--border-gold);
   color: var(--gold);
-  padding: .3rem .6rem;
+  padding: .35rem .7rem;
   text-decoration: none;
-  letter-spacing: .06em;
+  letter-spacing: .04em;
   display: inline-block;
   box-shadow: var(--shadow-sm);
 }
@@ -389,13 +389,20 @@ nav a.active::after { width: 100%; }
 .article-body h3 { font-size: .62rem; color: var(--text-muted); }
 .article-body h4 { font-size: .55rem; color: var(--text-muted); }
 
-.article-body h2::before { content: '◆ '; color: var(--gold-dark); }
-.article-body h3::before { content: '◇ '; }
+.article-body h3::before { content: '◇ '; color: var(--gold-dark); }
 
 .article-body p { margin-bottom: 1.3rem; }
 
-.article-body a { color: var(--claude); text-decoration: underline; text-decoration-color: var(--claude-dim); }
-.article-body a:hover { color: var(--gold); }
+.article-body a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--gold-dark);
+  transition: color .15s, border-color .15s, border-bottom-style .15s;
+}
+.article-body a:hover {
+  color: var(--claude);
+  border-bottom: 1px solid var(--claude-dim);
+}
 
 .article-body strong { color: var(--text); font-style: normal; }
 .article-body em { color: var(--text-muted); }
@@ -441,10 +448,18 @@ nav a.active::after { width: 100%; }
 
 .article-body li { margin-bottom: .4rem; }
 
+.article-body ul ul,
+.article-body ul ol,
+.article-body ol ul,
+.article-body ol ol { margin-bottom: 0; margin-top: .3rem; }
+
 .article-body ul li::marker { color: var(--claude); content: '▸  '; }
 .article-body ol li::marker { color: var(--gold); font-family: var(--font-pixel); font-size: .6rem; }
 
 /* ─── Code ───────────────────────────────────────────────────── */
+.highlight { margin: 1.5rem 0; }
+.highlight > pre { margin: 0; }
+
 code {
   font-family: var(--font-mono);
   background: var(--bg-code);
@@ -458,7 +473,7 @@ pre {
   background: var(--bg-code);
   border: 2px solid var(--border-gold);
   box-shadow: 4px 4px 0 var(--gold-dark);
-  padding: 2.4rem 1.4rem 1.2rem;
+  padding: 3rem 1.4rem 1.2rem;
   overflow-x: auto;
   margin: 1.5rem 0;
   position: relative;
@@ -468,15 +483,20 @@ pre::before {
   content: '◈  TRANSMISSION LOG  ◈';
   display: block;
   font-family: var(--font-pixel);
-  font-size: .34rem;
-  color: var(--gold-dark);
+  font-size: .5rem;
+  color: var(--gold);
   position: absolute;
   top: 0; left: 0; right: 0;
   background: var(--border);
-  padding: .55rem .8rem;
+  padding: .7rem 1rem;
   border-bottom: 1px solid var(--border-gold);
-  letter-spacing: .18em;
+  letter-spacing: .12em;
   line-height: 1;
+}
+
+pre[data-lang]::before {
+  content: '◈  ' attr(data-lang) '  ◈';
+  text-transform: uppercase;
 }
 
 pre code {
@@ -496,8 +516,8 @@ pre code {
 }
 
 .article-body th {
-  font-family: var(--font-pixel);
-  font-size: .5rem;
+  font-family: var(--font-mono);
+  font-size: .82rem;
   background: var(--bg-card);
   color: var(--gold);
   border: 1px solid var(--border-gold);
@@ -534,8 +554,8 @@ pre code {
 }
 
 .post-nav a {
-  font-family: var(--font-pixel);
-  font-size: .5rem;
+  font-family: var(--font-serif);
+  font-size: .92rem;
   color: var(--text-muted);
   text-decoration: none;
   padding: .8rem 1rem;
@@ -1000,17 +1020,12 @@ pre code {
   background: linear-gradient(90deg, var(--gold-dark), var(--border-gold));
 }
 
-.pipe-joint {
-  width: 14px;
-  height: 14px;
-  background: var(--gold);
-  border-radius: 50%;
-  box-shadow:
-    inset 2px 2px 0 rgba(255,255,255,.25),
-    inset -2px -2px 0 rgba(0,0,0,.5),
-    0 0 0 3px var(--gold-dark);
+.pipe-gear {
+  color: var(--gold);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0 .6rem;
   flex-shrink: 0;
-  margin: 0 -1px;
 }
 
 /* ─── Industrial: Wax Seal on Article Header ────────────────── */
@@ -1047,11 +1062,12 @@ pre code {
 /* ─── Industrial: Horizontal Pipe Rule (article body) ───────── */
 .article-body hr {
   border: none;
-  height: 12px;
+  height: 24px;
   margin: 2rem 0;
   display: flex;
   align-items: center;
   position: relative;
+  overflow: visible;
 }
 
 .article-body hr::before {
@@ -1068,7 +1084,7 @@ pre code {
 }
 
 .article-body hr::after {
-  content: '◈';
+  content: '⚙';
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1076,8 +1092,9 @@ pre code {
   background: var(--bg);
   padding: 0 .6rem;
   color: var(--gold);
-  font-size: .9rem;
+  font-size: 1.2rem;
   line-height: 1;
+  z-index: 1;
 }
 
 /* ─── Industrial: More Ornate Article h2 ────────────────────── */

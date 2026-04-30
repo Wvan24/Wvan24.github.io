@@ -89,8 +89,8 @@
  * Script/cursive fonts need font-size ≥ 1.5rem to look good.
  */
 :root {
-  --font-display: 'Pinyon Script', serif;            /* titles, hero, site name */
-  --font-serif:   'IM Fell English', Georgia, serif; /* body prose */
-  --font-pixel:   'Press Start 2P', monospace;       /* nav, article headings, UI accents */
-  --font-mono:    'Share Tech Mono', monospace;      /* code, dates, meta */
+  --font-display: 'Pinyon Script', serif;                              /* titles, hero, site name */
+  --font-serif:   'IM Fell English', 'LXGW WenKai', Georgia, serif;   /* body prose */
+  --font-pixel:   'Press Start 2P', monospace;                         /* nav, article headings, UI accents */
+  --font-mono:    'Share Tech Mono', monospace;                        /* code, dates, meta */
 }

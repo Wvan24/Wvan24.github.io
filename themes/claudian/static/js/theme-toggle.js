@@ -26,5 +26,13 @@
   document.addEventListener('DOMContentLoaded', function () {
     var btn = document.getElementById('theme-toggle')
     if (btn) btn.addEventListener('click', toggle)
+
+    // Propagate data-lang from <code> to parent <pre> for CSS label
+    document.querySelectorAll('.highlight pre').forEach(function (pre) {
+      var code = pre.querySelector('code[data-lang]')
+      if (code && code.dataset.lang) {
+        pre.setAttribute('data-lang', code.dataset.lang)
+      }
+    })
   })
 })()
