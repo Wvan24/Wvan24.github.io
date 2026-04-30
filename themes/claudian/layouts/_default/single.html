@@ -1,0 +1,55 @@
+{{ define "main" }}
+<article class="post-single">
+  <header class="post-single-header">
+    <p class="transmission-id">TRANSMISSION № {{ .Date.Format "20060102" }}-{{ .File.UniqueID | upper | truncate 6 "" }}</p>
+    <div class="section-label" style="margin-bottom:1.2rem">
+      <span class="section-label-gear">⚙</span>
+      <span>DISPATCH</span>
+      <span class="section-label-gear">⚙</span>
+    </div>
+    <div class="wax-seal">✦</div>
+    <h1 class="post-single-title">{{ .Title }}</h1>
+    <div class="post-single-meta">
+      <span>{{ .Date.Format "2006年01月02日" }}</span>
+      <span>{{ .ReadingTime }} 分钟阅读</span>
+      {{ with .Params.tags }}
+      <span class="tags">
+        {{ range . }}
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>
+        {{ end }}
+      </span>
+      {{ end }}
+    </div>
+    <div class="header-rule">
+      <span></span><span class="rule-gear">⚙</span><span></span>
+    </div>
+  </header>
+
+  <div class="article-body">
+    {{ .Content }}
+  </div>
+
+  <div class="pipe-divider">
+    <span class="pipe-joint"></span>
+    <span class="pipe-joint"></span>
+    <span class="pipe-joint"></span>
+  </div>
+
+  {{ with .Params.tags }}
+  <div class="tags">
+    {{ range . }}
+    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <nav class="post-nav">
+    {{ with .PrevInSection }}
+    <a href="{{ .Permalink }}" class="prev">{{ .Title }}</a>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a href="{{ .Permalink }}" class="next">{{ .Title }}</a>
+    {{ end }}
+  </nav>
+</article>
+{{ end }}

@@ -1,0 +1,44 @@
+<header class="site-header">
+  <div class="header-gauge">
+    <span>⚙ PWR:██████░░</span>
+    <span class="gauge-sep">◈</span>
+    <span>SYSTEM ONLINE</span>
+    <span class="gauge-sep">◈</span>
+    <span>STEAM:▓▓▓▓░░</span>
+    <span class="gauge-sep">◈</span>
+    <span>PRESS: 4.2 ATM ⚙</span>
+  </div>
+  <div class="container">
+    <div class="header-inner">
+      <a href="{{ "/" | relURL }}" class="site-title">
+        <span class="crown">✦ {{ .Site.Params.subtitle | default "Victorian Chronicles" }} ✦</span>
+        {{ .Site.Title }}
+      </a>
+      <nav>
+        <ul>
+          {{ range .Site.Menus.main }}
+          <li>
+            <a href="{{ .URL }}"
+               {{ if $.IsMenuCurrent "main" . }}class="active"{{ end }}>
+              ⬡ {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+          <li>
+            <button id="theme-toggle" class="theme-toggle" aria-label="切换白天">
+              <span class="icon-dark">☾</span>
+              <span class="icon-light">☀</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="header-pipe">
+    <span class="pg"><span></span></span>
+    <span class="pg"><span></span></span>
+    <span class="pg"><span></span></span>
+    <span class="pg"><span></span></span>
+    <span class="pg"><span></span></span>
+  </div>
+</header>

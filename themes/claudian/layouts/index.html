@@ -1,0 +1,53 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-frame">
+    <span class="lbracket tl"></span><span class="lbracket tr"></span>
+    <span class="lbracket bl"></span><span class="lbracket br"></span>
+    <span class="rivet tl"></span><span class="rivet tr"></span>
+    <span class="rivet bl"></span><span class="rivet br"></span>
+    <div class="hero-gear-l">⚙</div>
+    <div class="hero-gear-r">⚙</div>
+    <h1 class="hero-title">{{ .Site.Params.heroTitle | default .Site.Title }}</h1>
+    <p class="hero-sub">{{ .Site.Params.heroSub | default "技术笔记 · 个人随笔 · 游戏开发" }}</p>
+    <div class="hero-ornament">✦</div>
+  </div>
+</section>
+
+{{ $posts := where .Site.RegularPages "Type" "posts" }}
+{{ if $posts }}
+<div class="section-label">
+  <span class="section-label-gear">⚙</span>
+  <span>DISPATCHES</span>
+  <span class="section-label-gear">⚙</span>
+</div>
+<div class="post-list">
+  {{ range $posts }}
+  <a href="{{ .Permalink }}" class="post-card px-border">
+    <span class="lbracket tl"></span><span class="lbracket tr"></span>
+    <span class="lbracket bl"></span><span class="lbracket br"></span>
+    <span class="rivet tl"></span><span class="rivet tr"></span>
+    <span class="rivet bl"></span><span class="rivet br"></span>
+    <div class="card-dispatch">
+      <span class="cd-from">FROM: {{ $.Site.Params.author | default "WVAN" | upper }}</span>
+      <span>{{ .Date.Format "2006.01.02" }}</span>
+      <span class="cd-stamp">OPEN</span>
+    </div>
+    <h2 class="post-card-title">{{ .Title }}</h2>
+    <div class="post-meta">
+      <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+      {{ with .Params.tags }}
+      <span class="tags">
+        {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+      </span>
+      {{ end }}
+    </div>
+    {{ with .Summary }}
+    <p class="post-summary">{{ . }}</p>
+    {{ end }}
+  </a>
+  {{ end }}
+</div>
+{{ else }}
+<div class="ornament">暂无文章</div>
+{{ end }}
+{{ end }}

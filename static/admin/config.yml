@@ -1,0 +1,37 @@
+backend:
+  name: github
+  repo: Wvan24/Wvan24.github.io
+  branch: main
+  # 替换为你的 Cloudflare Worker 域名（部署后填写）
+  base_url: https://YOUR_WORKER.YOUR_SUBDOMAIN.workers.dev
+
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+locale: zh_Hans
+
+collections:
+  - name: posts
+    label: 文章
+    label_singular: 文章
+    folder: content/posts
+    create: true
+    slug: "{{slug}}"
+    preview_path: "posts/{{slug}}"
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: 发布日期, name: date, widget: datetime, format: "YYYY-MM-DDTHH:mm:ssZ", date_format: "YYYY-MM-DD", time_format: "HH:mm", default: "" }
+      - { label: 草稿, name: draft, widget: boolean, default: false }
+      - { label: 标签, name: tags, widget: list, default: [] }
+      - { label: 摘要, name: description, widget: text, required: false }
+      - { label: 正文, name: body, widget: markdown }
+
+  - name: pages
+    label: 独立页面
+    files:
+      - label: 关于
+        name: about
+        file: content/about/index.md
+        fields:
+          - { label: 标题, name: title, widget: string }
+          - { label: 正文, name: body, widget: markdown }

@@ -1,0 +1,46 @@
+baseURL = "https://wvan24.github.io/"
+languageCode = "zh-CN"
+title = "Wvan"
+theme = "claudian"
+defaultContentLanguage = "zh"
+enableRobotsTXT = true
+hasCJKLanguage = true
+summarizeLength = 80
+
+[params]
+  author      = "Wvan"
+  description = "技术笔记与个人随笔"
+  subtitle    = "Victorian Chronicles"
+  heroTitle   = "Wvan's Blog"
+  heroSub     = "技术笔记 · 个人随笔 · 像素维多利亚"
+
+[menu]
+  [[menu.main]]
+    name   = "文章"
+    url    = "/posts/"
+    weight = 1
+  [[menu.main]]
+    name   = "标签"
+    url    = "/tags/"
+    weight = 2
+  [[menu.main]]
+    name   = "关于"
+    url    = "/about/"
+    weight = 3
+
+[taxonomies]
+  tag      = "tags"
+  category = "categories"
+
+[outputs]
+  home     = ["HTML", "RSS"]
+  page     = ["HTML"]
+  section  = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos   = false
+  [markup.goldmark.renderer]
+    unsafe = true
