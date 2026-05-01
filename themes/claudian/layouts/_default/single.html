@@ -1,7 +1,13 @@
 {{ define "main" }}
 <article class="post-single">
   <header class="post-single-header">
+    {{ if not .Params.hideDate }}
+    {{ if ne .Date.Year 1 }}
     <p class="transmission-id">TRANSMISSION № {{ .Date.Format "20060102" }}-{{ .File.UniqueID | upper | truncate 6 "" }}</p>
+    {{ else if ne .Lastmod.Year 1 }}
+    <p class="transmission-id">TRANSMISSION № {{ .Lastmod.Format "20060102" }}-{{ .File.UniqueID | upper | truncate 6 "" }}</p>
+    {{ end }}
+    {{ end }}
     <div class="section-label" style="margin-bottom:1.2rem">
       <span class="section-label-gear">⚙</span>
       <span>DISPATCH</span>
@@ -10,8 +16,15 @@
     <div class="wax-seal">✦</div>
     <h1 class="post-single-title">{{ .Title }}</h1>
     <div class="post-single-meta">
+      {{ if not .Params.hideDate }}
+      {{ if ne .Date.Year 1 }}
       <span>{{ .Date.Format "2006年01月02日" }}</span>
       <span>{{ .ReadingTime }} 分钟阅读</span>
+      {{ else if ne .Lastmod.Year 1 }}
+      <span>{{ .Lastmod.Format "2006年01月02日" }}</span>
+      <span>{{ .ReadingTime }} 分钟阅读</span>
+      {{ end }}
+      {{ end }}
       {{ with .Params.tags }}
       <span class="tags">
         {{ range . }}

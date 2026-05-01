@@ -686,6 +686,8 @@ pre code {
   line-height: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
   transition: none;
 }
 

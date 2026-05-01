@@ -5,28 +5,33 @@ theme = "claudian"
 defaultContentLanguage = "zh"
 enableRobotsTXT = true
 hasCJKLanguage = true
+enableGitInfo = true
 summarizeLength = 80
 
 [params]
   author      = "Wvan"
   description = "技术笔记与个人随笔"
-  subtitle    = "Victorian Chronicles"
-  heroTitle   = "Wvan's Blog"
-  heroSub     = "技术笔记 · 个人随笔 · 像素维多利亚"
+  subtitle    = "Left is where lose right"
+  heroTitle   = "Hello world!"
+  heroSub     = "吾生也有涯，而知也无涯 · 以有涯随无涯，殆已！"
 
 [menu]
   [[menu.main]]
+    name   = "首页"
+    url    = "/"
+    weight = 1
+  [[menu.main]]
     name   = "文章"
     url    = "/posts/"
-    weight = 1
+    weight = 2
   [[menu.main]]
     name   = "标签"
     url    = "/tags/"
-    weight = 2
+    weight = 3
   [[menu.main]]
     name   = "关于"
     url    = "/about/"
-    weight = 3
+    weight = 4
 
 [taxonomies]
   tag      = "tags"

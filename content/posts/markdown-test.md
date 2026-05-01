@@ -1,6 +1,5 @@
 ---
 title: "Markdown 样式测试"
-date: 2026-04-30T12:00:00+08:00
 draft: false
 tags: ["测试", "样式"]
 description: "用于检测各类 Markdown 元素渲染效果的测试文章"
