@@ -3,7 +3,7 @@ backend:
   repo: Wvan24/Wvan24.github.io
   branch: main
   # 替换为你的 Cloudflare Worker 域名（部署后填写）
-  base_url: https://YOUR_WORKER.YOUR_SUBDOMAIN.workers.dev
+  base_url: https://wvan24-oauth.499585300.workers.dev
 
 media_folder: static/images/uploads
 public_folder: /images/uploads
