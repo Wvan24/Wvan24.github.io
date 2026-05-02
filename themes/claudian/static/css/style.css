@@ -410,19 +410,22 @@ nav a.active::after { width: 100%; }
 .fold-heading::before {
   content: '';
   display: inline-block;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 8px solid currentColor;
-  margin-right: 6px;
-  opacity: .5;
-  transition: transform .2s, opacity .15s;
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  margin-right: 7px;
+  opacity: .55;
+  vertical-align: middle;
+  transition: transform .3s ease, opacity .15s;
+  background:
+    radial-gradient(circle, currentColor 1px, transparent 1.5px),
+    conic-gradient(from 30deg, currentColor 0deg, currentColor 3deg, transparent 3deg);
 }
 .fold-heading[aria-expanded="false"]::before {
-  transform: rotate(-90deg);
+  transform: rotate(-120deg);
 }
-.fold-heading:hover::before { opacity: .8; }
+.fold-heading:hover::before { opacity: .85; }
 .fold-group { overflow: hidden; transition: max-height .3s ease, opacity .3s ease; }
 .fold-hidden { display: none; }
 
