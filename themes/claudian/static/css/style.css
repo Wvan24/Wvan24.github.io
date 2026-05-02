@@ -419,12 +419,13 @@ nav a.active::after { width: 100%; }
   margin-right: 7px;
   opacity: .45;
   vertical-align: middle;
+  transform-origin: 50% 50%;
   transition: transform .3s ease, opacity .15s;
   background:
     radial-gradient(circle at 50% 50%, currentColor 1.3px, transparent 1.8px),
     linear-gradient(to bottom,
-      transparent 16%, currentColor 16%,
-      currentColor 42%, transparent 42%
+      transparent 20%, currentColor 20%,
+      currentColor 50%, transparent 50%
     );
   box-shadow:
     0 -5px 0 -1.5px currentColor,
