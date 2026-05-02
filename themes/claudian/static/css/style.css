@@ -959,6 +959,10 @@ mark {
   position: absolute;
   top: .55rem;
   right: .8rem;
+  left: auto;
+  width: auto;
+  height: auto;
+  background: none;
   font-family: var(--font-pixel);
   font-size: .38rem;
   color: var(--text-dim);
