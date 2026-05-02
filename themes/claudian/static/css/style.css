@@ -408,14 +408,35 @@ nav a.active::after { width: 100%; }
   user-select: none;
 }
 .fold-heading::before {
-  content: '⚙ ▾';
-  font-size: .7em;
-  opacity: .55;
-  margin-right: 4px;
-  transition: opacity .15s;
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  margin-right: 6px;
+  opacity: .5;
+  vertical-align: middle;
+  transition: transform .3s ease, opacity .15s;
+  /* pointer line */
+  background: linear-gradient(
+    to bottom,
+    transparent 25%, currentColor 25%,
+    currentColor 33%, transparent 33%
+  );
+  /* cog teeth */
+  box-shadow:
+    0 -5px 0 -1.5px currentColor,
+    0 5px 0 -1.5px currentColor,
+    -5px 0 0 -1.5px currentColor,
+    5px 0 0 -1.5px currentColor,
+    3.5px -3.5px 0 -1.5px currentColor,
+    3.5px 3.5px 0 -1.5px currentColor,
+    -3.5px -3.5px 0 -1.5px currentColor,
+    -3.5px 3.5px 0 -1.5px currentColor;
 }
 .fold-heading[aria-expanded="false"]::before {
-  content: '⚙ ▸';
+  transform: rotate(-90deg);
 }
 .fold-heading:hover::before { opacity: .85; }
 .fold-group { overflow: hidden; transition: max-height .3s ease, opacity .3s ease; }
