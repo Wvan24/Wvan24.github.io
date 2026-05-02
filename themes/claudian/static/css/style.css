@@ -408,22 +408,14 @@ nav a.active::after { width: 100%; }
   user-select: none;
 }
 .fold-heading::before {
-  content: '';
-  display: inline-block;
-  width: 11px;
-  height: 11px;
-  border: 1.5px solid currentColor;
-  border-radius: 50%;
-  margin-right: 7px;
+  content: '⚙ ▾';
+  font-size: .7em;
   opacity: .55;
-  vertical-align: middle;
-  transition: transform .3s ease, opacity .15s;
-  background:
-    radial-gradient(circle, currentColor 1px, transparent 1.5px),
-    conic-gradient(from 30deg, currentColor 0deg, currentColor 3deg, transparent 3deg);
+  margin-right: 4px;
+  transition: opacity .15s;
 }
 .fold-heading[aria-expanded="false"]::before {
-  transform: rotate(-120deg);
+  content: '⚙ ▸';
 }
 .fold-heading:hover::before { opacity: .85; }
 .fold-group { overflow: hidden; transition: max-height .3s ease, opacity .3s ease; }
