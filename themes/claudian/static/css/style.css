@@ -388,7 +388,7 @@ nav a.active::after { width: 100%; }
   letter-spacing: .04em;
 }
 
-.article-body h1 { font-size: 1.6rem; text-shadow: 2px 2px 0 var(--gold-dark); }
+.article-body h1 { font-size: 2.0rem; text-shadow: 2px 2px 0 var(--gold-dark); }
 .article-body h1::after {
   content: '';
   display: block;
@@ -396,9 +396,9 @@ nav a.active::after { width: 100%; }
   background: linear-gradient(90deg, var(--border-gold), transparent);
   margin-top: .4rem;
 }
-.article-body h2 { font-size: 1.35rem; }
-.article-body h3 { font-size: 1.15rem; }
-.article-body h4 { font-size: 1.05rem; }
+.article-body h2 { font-size: 1.6rem; }
+.article-body h3 { font-size: 1.3rem; }
+.article-body h4 { font-size: 1.15rem; }
 .article-body h5 { font-size: 1.0rem; }
 .article-body h6 { font-size: 1.0rem; color: var(--text-muted); }
 
