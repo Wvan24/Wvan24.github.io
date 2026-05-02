@@ -420,18 +420,6 @@ nav a.active::after { width: 100%; }
 .fold-group { overflow: hidden; transition: max-height .3s ease, opacity .3s ease; }
 .fold-hidden { display: none; }
 
-/* ─── Collapsible lists ────────────────────────────────────── */
-.fold-parent {
-  cursor: pointer;
-  list-style: none;
-}
-.fold-parent > ul,
-.fold-parent > ol {
-  transition: max-height .3s ease, opacity .3s ease;
-}
-.fold-parent > ul.fold-hidden,
-.fold-parent > ol.fold-hidden { display: none; }
-
 .article-body p { margin-bottom: 1.3rem; }
 
 .article-body a {
