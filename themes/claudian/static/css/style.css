@@ -389,6 +389,13 @@ nav a.active::after { width: 100%; }
 }
 
 .article-body h1 { font-size: 1.2rem; text-shadow: 2px 2px 0 var(--gold-dark); }
+.article-body h1::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-gold), transparent);
+  margin-top: .4rem;
+}
 .article-body h2 { font-size: 1.0rem; }
 .article-body h3 { font-size: .85rem; }
 .article-body h4 { font-size: .72rem; }
@@ -1162,21 +1169,6 @@ mark {
   font-size: 1.2rem;
   line-height: 1;
   z-index: 1;
-}
-
-/* ─── Industrial: More Ornate Article h2 ────────────────────── */
-.article-body h2 {
-  position: relative;
-  padding-left: 1rem;
-  border-left: 3px solid var(--gold-dark);
-}
-
-.article-body h2::after {
-  content: '';
-  display: block;
-  height: 1px;
-  background: linear-gradient(90deg, var(--border-gold), transparent);
-  margin-top: .4rem;
 }
 
 /* ─── Phase 2: Pipe Rails, Manifolds & Background Gears ─────── */
