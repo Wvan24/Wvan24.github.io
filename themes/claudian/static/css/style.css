@@ -14,6 +14,8 @@
   --border:      #2e2010;
   --border-gold: #4a3510;
   --tag-bg:      #1e1508;
+  --mark-bg:     #5c3a10;
+  --mark-text:   #f0d080;
 
   --shadow-sm:   2px 2px 0 var(--gold-dark);
   --shadow-md:   3px 3px 0 var(--gold-dark);
@@ -674,6 +676,14 @@ pre code {
 /* ─── Selection ──────────────────────────────────────────────── */
 ::selection { background: var(--claude); color: var(--bg); }
 
+/* ─── Mark Highlight ─────────────────────────────────────────── */
+mark {
+  background: var(--mark-bg);
+  color: var(--mark-text);
+  padding: .1em .3em;
+  border-radius: 2px;
+}
+
 /* ─── Theme Toggle Button ────────────────────────────────────── */
 .theme-toggle {
   background: none;
@@ -726,6 +736,8 @@ pre code {
   --border:      #e0dcd6;
   --border-gold: #c8b888;
   --tag-bg:      #eeecea;
+  --mark-bg:     #f5e0b0;
+  --mark-text:   #5c3808;
 }
 
 :root[data-theme="light"] ::selection {
