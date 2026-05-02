@@ -692,6 +692,60 @@ pre code {
 .post-nav .prev::before { content: '← '; }
 .post-nav .next::after  { content: ' →'; }
 
+/* ─── TOC Sidebar ──────────────────────────────────────────── */
+.post-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.post-toc {
+  width: 200px;
+  flex-shrink: 0;
+  font-family: var(--font-pixel);
+  font-size: .55rem;
+}
+.toc-sticky {
+  position: sticky;
+  top: 1.5rem;
+}
+.toc-title {
+  color: var(--gold);
+  font-size: .6rem;
+  margin-bottom: .8rem;
+  letter-spacing: .06em;
+}
+.toc-gear {
+  font-size: .5rem;
+  opacity: .6;
+}
+.post-toc nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.post-toc nav li {
+  margin-bottom: .25rem;
+  line-height: 1.5;
+}
+.post-toc nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  padding: .15rem .4rem;
+  border-left: 2px solid transparent;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.post-toc nav a:hover,
+.post-toc nav a.active {
+  color: var(--gold);
+  border-left-color: var(--gold-dark);
+  background: var(--bg-card);
+}
+.post-toc nav ul ul { padding-left: .8rem; }
+.post-toc nav ul ul a { font-size: .5rem; }
+.post-toc nav ul ul ul { padding-left: .6rem; }
+.post-toc nav ul ul ul a { font-size: .46rem; }
+
 /* ─── About Page ─────────────────────────────────────────────── */
 .about-avatar {
   width: 100px;
@@ -1392,6 +1446,15 @@ mark {
   .post-card-title { font-size: .55rem; }
   .header-inner { flex-direction: column; align-items: flex-start; }
   nav ul { gap: 1rem; flex-wrap: wrap; }
+  .post-layout { flex-direction: column; }
+  .post-toc {
+    width: 100%;
+    position: static;
+    margin-bottom: 1rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-sticky { position: static; }
   .post-nav { flex-direction: column; }
   .post-nav a { max-width: 100%; }
   .manifold-label { display: none; }

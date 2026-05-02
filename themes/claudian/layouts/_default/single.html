@@ -1,5 +1,16 @@
 {{ define "main" }}
-<article class="post-single">
+<div class="post-layout">
+  {{ if and .TableOfContents (ne .Params.hideToc true) }}
+  <aside class="post-toc">
+    <div class="toc-sticky">
+      <div class="toc-title">
+        <span class="toc-gear">⚙</span> 大纲 <span class="toc-gear">⚙</span>
+      </div>
+      {{ .TableOfContents }}
+    </div>
+  </aside>
+  {{ end }}
+  <article class="post-single">
   <header class="post-single-header">
     {{ if not .Params.hideDate }}
     {{ if ne .Date.Year 1 }}
@@ -63,4 +74,5 @@
     {{ end }}
   </nav>
 </article>
+</div>
 {{ end }}
