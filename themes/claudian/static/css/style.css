@@ -909,56 +909,17 @@ mark {
 :root[data-theme="light"] .footer-manifold-inner::after { color: #b89858; }
 
 /* ─── Gear Rotation Animation ───────────────────────────────── */
-@keyframes gear-cw  { to { transform: rotate(360deg);  } }
-@keyframes gear-ccw { to { transform: rotate(-360deg); } }
+@keyframes gear-cw  { to { transform: translateY(-50%) rotate(360deg);  } }
+@keyframes gear-ccw { to { transform: translateY(-50%) rotate(-360deg); } }
 @keyframes gear-spin-sm { to { transform: rotate(360deg); } }
 @keyframes pipe-rot-cw  { to { rotate:  360deg; } }
 @keyframes pipe-rot-ccw { to { rotate: -360deg; } }
 
-/* ─── CSS Gear (replaces ⚙, guarantees centered rotation) ─── */
-.css-gear {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  border: 0.12em solid currentColor;
-  border-radius: 50%;
-  position: relative;
-  line-height: 1;
-  vertical-align: middle;
-  font-size: inherit;
-  color: inherit;
-  /* teeth */
-  box-shadow:
-    0    -0.65em 0 -0.22em currentColor,
-    0     0.65em 0 -0.22em currentColor,
-    -0.65em 0    0 -0.22em currentColor,
-    0.65em 0     0 -0.22em currentColor,
-    0.46em -0.46em 0 -0.22em currentColor,
-    0.46em 0.46em 0 -0.22em currentColor,
-    -0.46em -0.46em 0 -0.22em currentColor,
-    -0.46em 0.46em 0 -0.22em currentColor;
-}
-.css-gear::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0.22em;
-  height: 0.22em;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-/* spinning overrides: ensure transform-origin centers the gear */
-.css-gear-spin {
-  transform-origin: center center;
-}
-
 .hero-gear-l { animation: gear-cw  28s linear infinite; }
 .hero-gear-r { animation: gear-ccw 20s linear infinite; }
 
-.section-label-gear:first-child { animation: gear-spin-sm 12s linear infinite; }
-.section-label-gear:last-child  { animation: gear-spin-sm 12s linear infinite reverse; }
+.section-label-gear:first-child { display:inline-block; animation: gear-spin-sm 12s linear infinite; }
+.section-label-gear:last-child  { display:inline-block; animation: gear-spin-sm 12s linear infinite reverse; }
 
 /* ─── L-Bracket Corners ──────────────────────────────────────── */
 .lbracket {
@@ -1076,10 +1037,10 @@ mark {
 .hero-gear-r {
   position: absolute;
   top: 50%;
-  margin-top: -0.5em;
+  transform: translateY(-50%);
   font-size: 4.5rem;
   color: var(--gold-dark);
-  opacity: .33;
+  opacity: .5;
   user-select: none;
   line-height: 1;
 }
@@ -1112,8 +1073,11 @@ mark {
 }
 
 .section-label-gear {
-  font-size: .9rem;
   color: var(--gold-dark);
+  font-size: .9rem;
+  line-height: 1;
+  display: inline-block;
+  transform-origin: center center;
 }
 
 /* ─── Industrial: Ornamental Rule ───────────────────────────── */
@@ -1324,13 +1288,21 @@ mark {
              filter is applied AFTER the child's rotation composites.
    .pg > span = rotating inner element that carries the ⚙ glyph.
    ──────────────────────────────────────────────────────────────── */
-/* ── Shared gear inner: CSS gear inside .pg / .fgear ── */
+/* ── Shared gear inner: rotating ⚙ glyph inside .pg / .fgear ── */
 .pg > span,
 .fgear > span {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
   color: var(--gold);
   font-size: inherit;
+  line-height: 1;
+  transform-origin: center center;
 }
+.pg > span::after,
+.fgear > span::after { content: '⚙'; }
 
 /* ── Header pipe gears (.pg = non-rotating wrapper) ────────────── */
 .pg {
@@ -1393,11 +1365,13 @@ mark {
 
 .footer-manifold-inner::before,
 .footer-manifold-inner::after {
-  content: '';
+  content: '⚙';
   font-size: .8rem;
   color: var(--gold-dark);
-  padding: .25rem;
+  padding: .05rem .3rem;
   flex-shrink: 0;
+  display: inline-block;
+  transform-origin: center center;
 }
 
 .footer-manifold-inner::before { animation: gear-spin-sm  8s linear infinite; }
