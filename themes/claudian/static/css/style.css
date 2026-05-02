@@ -1043,6 +1043,12 @@ mark {
   opacity: .5;
   user-select: none;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  transform-origin: center center;
 }
 .hero-gear-l { left:  -2.4rem; }
 .hero-gear-r { right: -2.4rem; }
@@ -1076,7 +1082,11 @@ mark {
   color: var(--gold-dark);
   font-size: .9rem;
   line-height: 1;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
   transform-origin: center center;
 }
 
@@ -1249,6 +1259,12 @@ mark {
   color: var(--gold);
   line-height: 1;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  transform-origin: center center;
 }
 
 .bg-gear-1 {
