@@ -1076,6 +1076,8 @@ mark {
   color: var(--gold-dark);
   font-size: .9rem;
   line-height: 1;
+  display: inline-block;
+  transform-origin: center center;
 }
 
 /* ─── Industrial: Ornamental Rule ───────────────────────────── */
@@ -1293,6 +1295,7 @@ mark {
   color: var(--gold);
   font-size: inherit;
   line-height: 1;
+  transform-origin: center center;
 }
 .pg > span::after,
 .fgear > span::after { content: '⚙'; }
@@ -1363,6 +1366,8 @@ mark {
   color: var(--gold-dark);
   padding: .05rem .3rem;
   flex-shrink: 0;
+  display: inline-block;
+  transform-origin: center center;
 }
 
 .footer-manifold-inner::before { animation: gear-spin-sm  8s linear infinite; }
