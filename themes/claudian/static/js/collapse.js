@@ -31,8 +31,22 @@
         h.classList.add('fold-heading')
         h.setAttribute('aria-expanded', 'true')
         h.addEventListener('click', function () {
-          const expanded = group.classList.toggle('fold-hidden')
-          h.setAttribute('aria-expanded', String(!expanded))
+          const isHidden = group.classList.contains('fold-hidden')
+          if (isHidden) {
+            // expand
+            group.style.maxHeight = group.scrollHeight + 'px'
+            group.classList.remove('fold-hidden')
+            setTimeout(function () {
+              group.style.maxHeight = ''
+            }, 400)
+          } else {
+            // collapse
+            group.style.maxHeight = group.scrollHeight + 'px'
+            // force reflow
+            group.offsetHeight
+            group.classList.add('fold-hidden')
+          }
+          h.setAttribute('aria-expanded', String(isHidden))
         })
       }
     })

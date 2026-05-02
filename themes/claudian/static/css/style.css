@@ -440,8 +440,18 @@ nav a.active::after { width: 100%; }
   transform: rotate(-90deg);
 }
 .fold-heading:hover::before { opacity: .85; }
-.fold-group { overflow: hidden; transition: max-height .3s ease, opacity .3s ease; }
-.fold-hidden { display: none; }
+.fold-group {
+  overflow: hidden;
+  max-height: 5000px;
+  opacity: 1;
+  transition: max-height .4s ease, opacity .3s ease;
+}
+.fold-group.fold-hidden {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 .article-body p { margin-bottom: 1.3rem; }
 
