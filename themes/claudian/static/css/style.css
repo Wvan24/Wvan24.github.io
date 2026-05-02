@@ -955,10 +955,10 @@ mark {
 .post-card { counter-increment: dispatch; }
 
 .post-card::before {
-  content: 'FILE № ' counter(dispatch, decimal-leading-zero);
+  content: 'FILE No.' counter(dispatch, decimal-leading-zero);
   position: absolute;
   top: .55rem;
-  right: .8rem;
+  right: 1.4rem;
   left: auto;
   width: auto;
   height: auto;
