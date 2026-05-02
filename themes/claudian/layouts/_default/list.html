@@ -4,28 +4,41 @@
   {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
 </div>
 
-{{ if .Pages }}
+{{ if or .Sections .RegularPages }}
 <div class="post-list">
-  {{ range .Pages }}
+  {{ range .Sections }}
   <a href="{{ .Permalink }}" class="post-card px-border">
+    <h2 class="post-card-title">📁 {{ .Title }}</h2>
+    <div class="post-meta">
+      <span class="date">{{ len .Pages }} 篇文章</span>
+    </div>
+  </a>
+  {{ end }}
+  {{ range .RegularPages }}
+  <a href="{{ .Permalink }}" class="post-card px-border">
+    <span class="lbracket tl"></span><span class="lbracket tr"></span>
+    <span class="lbracket bl"></span><span class="lbracket br"></span>
+    <span class="rivet tl"></span><span class="rivet tr"></span>
+    <span class="rivet bl"></span><span class="rivet br"></span>
+    <div class="card-dispatch">
+      <span class="cd-from">FROM: {{ $.Site.Params.author | default "WVAN" | upper }}</span>
+      {{ if ne .Date.Year 1 }}<span>{{ .Date.Format "2006.01.02" }}</span>{{ else if ne .Lastmod.Year 1 }}<span>{{ .Lastmod.Format "2006.01.02" }}</span>{{ end }}
+      <span class="cd-stamp">OPEN</span>
+    </div>
     <h2 class="post-card-title">{{ .Title }}</h2>
     <div class="post-meta">
-      <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+      {{ if ne .Date.Year 1 }}<span class="date">{{ .Date.Format "2006-01-02" }}</span>{{ else if ne .Lastmod.Year 1 }}<span class="date">{{ .Lastmod.Format "2006-01-02" }}</span>{{ end }}
       {{ with .Params.tags }}
       <span class="tags">
         {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
       </span>
       {{ end }}
     </div>
-    {{ with .Summary }}<p class="post-summary">{{ . }}</p>{{ end }}
+    {{ with .Description | default .Summary }}<div class="post-summary">{{ . | plainify | truncate 120 }}</div>{{ end }}
   </a>
   {{ end }}
 </div>
 {{ else }}
 <p class="ornament">此处空无一物</p>
-{{ end }}
-
-{{ if .IsHome }}{{ else }}
-{{ template "_internal/pagination.html" . }}
 {{ end }}
 {{ end }}
