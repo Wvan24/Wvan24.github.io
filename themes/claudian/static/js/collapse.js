@@ -1,4 +1,4 @@
-// Collapsible headings + TOC highlight
+// Collapsible headings
 (function () {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init)
@@ -10,7 +10,6 @@
     const body = document.querySelector('.article-body')
     if (!body) return
     foldHeadings(body)
-    tocHighlight(body)
   }
 
   function foldHeadings(body) {
@@ -53,28 +52,5 @@
         })
       }
     })
-  }
-
-  function tocHighlight(body) {
-    var toc = document.querySelector('.post-toc nav')
-    if (!toc) return
-    var links = toc.querySelectorAll('a')
-    if (!links.length) return
-    var headings = body.querySelectorAll('h1, h2, h3, h4, h5, h6')
-
-    function update() {
-      var current = ''
-      headings.forEach(function (h) {
-        var rect = h.getBoundingClientRect()
-        if (rect.top <= 100) current = h.id || ''
-      })
-      links.forEach(function (a) {
-        var href = a.getAttribute('href') || ''
-        a.classList.toggle('active', href === '#' + current)
-      })
-    }
-
-    window.addEventListener('scroll', update, { passive: true })
-    update()
   }
 })()

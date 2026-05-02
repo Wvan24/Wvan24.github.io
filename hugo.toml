@@ -49,7 +49,3 @@ summarizeLength = 80
     lineNos   = false
   [markup.goldmark.renderer]
     unsafe = true
-  [markup.tableOfContents]
-    startLevel = 2
-    endLevel = 4
-    ordered = false
