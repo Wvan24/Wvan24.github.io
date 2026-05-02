@@ -402,6 +402,36 @@ nav a.active::after { width: 100%; }
 .article-body h5 { font-size: 1.0rem; }
 .article-body h6 { font-size: 1.0rem; color: var(--text-muted); }
 
+/* ─── Collapsible headings ─────────────────────────────────── */
+.fold-heading {
+  cursor: pointer;
+  user-select: none;
+}
+.fold-heading::before {
+  content: '▾ ';
+  font-size: .7em;
+  opacity: .6;
+  transition: opacity .15s;
+}
+.fold-heading[aria-expanded="false"]::before {
+  content: '▸ ';
+}
+.fold-heading:hover::before { opacity: 1; }
+.fold-group { overflow: hidden; transition: max-height .3s ease, opacity .3s ease; }
+.fold-hidden { display: none; }
+
+/* ─── Collapsible lists ────────────────────────────────────── */
+.fold-parent {
+  cursor: pointer;
+  list-style: none;
+}
+.fold-parent > ul,
+.fold-parent > ol {
+  transition: max-height .3s ease, opacity .3s ease;
+}
+.fold-parent > ul.fold-hidden,
+.fold-parent > ol.fold-hidden { display: none; }
+
 .article-body p { margin-bottom: 1.3rem; }
 
 .article-body a {
