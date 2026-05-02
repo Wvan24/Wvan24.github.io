@@ -388,7 +388,7 @@ nav a.active::after { width: 100%; }
   letter-spacing: .04em;
 }
 
-.article-body h1 { font-size: 1.2rem; text-shadow: 2px 2px 0 var(--gold-dark); }
+.article-body h1 { font-size: 1.4rem; text-shadow: 2px 2px 0 var(--gold-dark); }
 .article-body h1::after {
   content: '';
   display: block;
@@ -396,11 +396,11 @@ nav a.active::after { width: 100%; }
   background: linear-gradient(90deg, var(--border-gold), transparent);
   margin-top: .4rem;
 }
-.article-body h2 { font-size: 1.0rem; }
+.article-body h2 { font-size: 1.1rem; }
 .article-body h3 { font-size: .85rem; }
-.article-body h4 { font-size: .72rem; }
-.article-body h5 { font-size: .62rem; }
-.article-body h6 { font-size: .50rem; color: var(--text-muted); }
+.article-body h4 { font-size: .68rem; }
+.article-body h5 { font-size: .55rem; }
+.article-body h6 { font-size: .46rem; color: var(--text-muted); }
 
 .article-body p { margin-bottom: 1.3rem; }
 
