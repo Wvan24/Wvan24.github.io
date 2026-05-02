@@ -908,35 +908,21 @@ mark {
 :root[data-theme="light"] .footer-manifold-inner::before,
 :root[data-theme="light"] .footer-manifold-inner::after { color: #b89858; }
 
-/* ─── Pure CSS Gear (square teeth + round body) ─────────────── */
+/* ─── SVG Gear Mask ─────────────────────────────────────────── */
 .gear-cog {
   display: inline-block;
-  width: .25em;
-  height: .25em;
+  width: 1em;
+  height: 1em;
   vertical-align: middle;
   background: currentColor;
-  position: relative;
-  box-shadow:
-    0 -.45em 0 0 currentColor,
-    0 .45em 0 0 currentColor,
-    -.45em 0 0 0 currentColor,
-    .45em 0 0 0 currentColor,
-    .32em -.32em 0 0 currentColor,
-    .32em .32em 0 0 currentColor,
-    -.32em -.32em 0 0 currentColor,
-    -.32em .32em 0 0 currentColor;
-}
-.gear-cog::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200%;
-  height: 200%;
-  border-radius: 50%;
-  background: currentColor;
-  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 28%, black 29%);
-          mask: radial-gradient(circle at 50% 50%, transparent 28%, black 29%);
+  -webkit-mask-image: url('/images/gear.svg');
+          mask-image: url('/images/gear.svg');
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
 }
 
 /* ─── Gear Rotation Animations ───────────────────────────────── */
@@ -1321,38 +1307,22 @@ mark {
   justify-content: center;
   color: var(--gold);
   font-size: inherit;
-  position: relative;
 }
 .pg > span::after,
 .fgear > span::after {
   content: '';
   display: inline-block;
-  width: .25em;
-  height: .25em;
+  width: 1em;
+  height: 1em;
   background: currentColor;
-  position: relative;
-  box-shadow:
-    0 -.45em 0 0 currentColor,
-    0 .45em 0 0 currentColor,
-    -.45em 0 0 0 currentColor,
-    .45em 0 0 0 currentColor,
-    .32em -.32em 0 0 currentColor,
-    .32em .32em 0 0 currentColor,
-    -.32em -.32em 0 0 currentColor,
-    -.32em .32em 0 0 currentColor;
-}
-.pg > span::before,
-.fgear > span::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200%;
-  height: 200%;
-  border-radius: 50%;
-  background: currentColor;
-  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 28%, black 29%);
-          mask: radial-gradient(circle at 50% 50%, transparent 28%, black 29%);
+  -webkit-mask-image: url('/images/gear.svg');
+          mask-image: url('/images/gear.svg');
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
 }
 
 /* ── Header pipe gears (.pg = non-rotating wrapper) ────────────── */
@@ -1418,20 +1388,18 @@ mark {
   color: var(--gold-dark);
   flex-shrink: 0;
   display: inline-block;
-  width: .25em;
-  height: .25em;
-  margin: 0 .5em;
+  width: 1em;
+  height: 1em;
+  margin: 0 .3em;
   background: currentColor;
-  position: relative;
-  box-shadow:
-    0 -.45em 0 0 currentColor,
-    0 .45em 0 0 currentColor,
-    -.45em 0 0 0 currentColor,
-    .45em 0 0 0 currentColor,
-    .32em -.32em 0 0 currentColor,
-    .32em .32em 0 0 currentColor,
-    -.32em -.32em 0 0 currentColor,
-    -.32em .32em 0 0 currentColor;
+  -webkit-mask-image: url('/images/gear.svg');
+          mask-image: url('/images/gear.svg');
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
 }
 
 .footer-manifold-inner::before { animation: spin-cw  8s linear infinite; }
