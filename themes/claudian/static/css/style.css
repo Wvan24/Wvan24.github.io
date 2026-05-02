@@ -410,30 +410,31 @@ nav a.active::after { width: 100%; }
 .fold-heading::before {
   content: '';
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   border: 1.5px solid currentColor;
   border-radius: 50%;
-  margin-right: 6px;
-  opacity: .5;
+  margin-right: 7px;
+  opacity: .45;
   vertical-align: middle;
   transition: transform .3s ease, opacity .15s;
-  /* pointer line */
-  background: linear-gradient(
-    to bottom,
-    transparent 25%, currentColor 25%,
-    currentColor 33%, transparent 33%
-  );
+  /* pointer with arrowhead */
+  background:
+    radial-gradient(circle at 50% 50%, currentColor 1.5px, transparent 2px),
+    linear-gradient(to bottom,
+      transparent 18%, currentColor 18%,
+      currentColor 42%, transparent 42%
+    );
   /* cog teeth */
   box-shadow:
-    0 -5px 0 -1.5px currentColor,
-    0 5px 0 -1.5px currentColor,
-    -5px 0 0 -1.5px currentColor,
-    5px 0 0 -1.5px currentColor,
-    3.5px -3.5px 0 -1.5px currentColor,
-    3.5px 3.5px 0 -1.5px currentColor,
-    -3.5px -3.5px 0 -1.5px currentColor,
-    -3.5px 3.5px 0 -1.5px currentColor;
+    0 -6px 0 -1.5px currentColor,
+    0 6px 0 -1.5px currentColor,
+    -6px 0 0 -1.5px currentColor,
+    6px 0 0 -1.5px currentColor,
+    4.2px -4.2px 0 -1.5px currentColor,
+    4.2px 4.2px 0 -1.5px currentColor,
+    -4.2px -4.2px 0 -1.5px currentColor,
+    -4.2px 3.5px 0 -1.5px currentColor;
 }
 .fold-heading[aria-expanded="false"]::before {
   transform: rotate(-90deg);
