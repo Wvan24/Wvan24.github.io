@@ -908,24 +908,35 @@ mark {
 :root[data-theme="light"] .footer-manifold-inner::before,
 :root[data-theme="light"] .footer-manifold-inner::after { color: #b89858; }
 
-/* ─── Pure CSS Gear (sharp polygon teeth, perfect rotation center) ─ */
+/* ─── Pure CSS Gear (square teeth + round body) ─────────────── */
 .gear-cog {
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: .25em;
+  height: .25em;
   vertical-align: middle;
   background: currentColor;
-  clip-path: polygon(
-    50%  2%, 56%  8%, 72%  6%, 74% 18%,
-    92% 20%, 86% 34%, 98% 38%, 88% 50%,
-    98% 62%, 86% 66%, 92% 80%, 74% 82%,
-    72% 94%, 56% 92%, 50% 98%, 44% 92%,
-    28% 94%, 26% 82%,  8% 80%, 14% 66%,
-     2% 62%, 12% 50%,  2% 38%, 14% 34%,
-     8% 20%, 26% 18%, 28%  6%, 44%  8%
-  );
-  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 14%, black 15%);
-          mask: radial-gradient(circle at 50% 50%, transparent 14%, black 15%);
+  position: relative;
+  box-shadow:
+    0 -.45em 0 0 currentColor,
+    0 .45em 0 0 currentColor,
+    -.45em 0 0 0 currentColor,
+    .45em 0 0 0 currentColor,
+    .32em -.32em 0 0 currentColor,
+    .32em .32em 0 0 currentColor,
+    -.32em -.32em 0 0 currentColor,
+    -.32em .32em 0 0 currentColor;
+}
+.gear-cog::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  background: currentColor;
+  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 28%, black 29%);
+          mask: radial-gradient(circle at 50% 50%, transparent 28%, black 29%);
 }
 
 /* ─── Gear Rotation Animations ───────────────────────────────── */
