@@ -908,18 +908,38 @@ mark {
 :root[data-theme="light"] .footer-manifold-inner::before,
 :root[data-theme="light"] .footer-manifold-inner::after { color: #b89858; }
 
-/* ─── Gear Rotation Animation ───────────────────────────────── */
-@keyframes gear-cw  { to { transform: translateY(-50%) rotate(360deg);  } }
-@keyframes gear-ccw { to { transform: translateY(-50%) rotate(-360deg); } }
-@keyframes gear-spin-sm { to { transform: rotate(360deg); } }
-@keyframes pipe-rot-cw  { to { rotate:  360deg; } }
-@keyframes pipe-rot-ccw { to { rotate: -360deg; } }
+/* ─── Pure CSS Gear (no glyph, perfect rotation center) ──────── */
+.gear-cog {
+  display: inline-block;
+  width: .35em;
+  height: .35em;
+  border: .055em solid currentColor;
+  border-radius: 50%;
+  vertical-align: middle;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, currentColor .035em, transparent .04em);
+  box-shadow:
+    0 -.25em 0 -.053em currentColor,
+    0 .25em 0 -.053em currentColor,
+    -.25em 0 0 -.053em currentColor,
+    .25em 0 0 -.053em currentColor,
+    .177em -.177em 0 -.053em currentColor,
+    .177em .177em 0 -.053em currentColor,
+    -.177em -.177em 0 -.053em currentColor,
+    -.177em .177em 0 -.053em currentColor;
+}
 
-.hero-gear-l { animation: gear-cw  28s linear infinite; }
-.hero-gear-r { animation: gear-ccw 20s linear infinite; }
+/* ─── Gear Rotation Animations ───────────────────────────────── */
+@keyframes spin-cw  { to { transform: rotate(360deg);  } }
+@keyframes spin-ccw { to { transform: rotate(-360deg); } }
+@keyframes spin-cent-cw  { to { transform: translateY(-50%) rotate(360deg);  } }
+@keyframes spin-cent-ccw { to { transform: translateY(-50%) rotate(-360deg); } }
 
-.section-label-gear:first-child { display:inline-block; animation: gear-spin-sm 12s linear infinite; }
-.section-label-gear:last-child  { display:inline-block; animation: gear-spin-sm 12s linear infinite reverse; }
+.hero-gear-l { animation: spin-cent-cw  28s linear infinite; }
+.hero-gear-r { animation: spin-cent-ccw 20s linear infinite; }
+
+.section-label-gear { animation: spin-cw 12s linear infinite; }
+.section-label-gear:nth-child(even) { animation: spin-ccw 12s linear infinite; }
 
 /* ─── L-Bracket Corners ──────────────────────────────────────── */
 .lbracket {
@@ -1042,13 +1062,6 @@ mark {
   color: var(--gold-dark);
   opacity: .5;
   user-select: none;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1em;
-  height: 1em;
-  transform-origin: center center;
 }
 .hero-gear-l { left:  -2.4rem; }
 .hero-gear-r { right: -2.4rem; }
@@ -1081,13 +1094,6 @@ mark {
 .section-label-gear {
   color: var(--gold-dark);
   font-size: .9rem;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1em;
-  height: 1em;
-  transform-origin: center center;
 }
 
 /* ─── Industrial: Ornamental Rule ───────────────────────────── */
@@ -1257,14 +1263,7 @@ mark {
 .bg-gear {
   position: absolute;
   color: var(--gold);
-  line-height: 1;
   user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1em;
-  height: 1em;
-  transform-origin: center center;
 }
 
 .bg-gear-1 {
@@ -1272,7 +1271,7 @@ mark {
   opacity: .018;
   bottom: -14rem;
   right: -14rem;
-  animation: gear-cw 90s linear infinite;
+  animation: spin-cw 90s linear infinite;
 }
 
 .bg-gear-2 {
@@ -1280,7 +1279,7 @@ mark {
   opacity: .013;
   top: -7rem;
   left: -9rem;
-  animation: gear-ccw 70s linear infinite;
+  animation: spin-ccw 70s linear infinite;
 }
 
 
@@ -1310,15 +1309,28 @@ mark {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1em;
-  height: 1em;
   color: var(--gold);
   font-size: inherit;
-  line-height: 1;
-  transform-origin: center center;
 }
 .pg > span::after,
-.fgear > span::after { content: '⚙'; }
+.fgear > span::after {
+  content: '';
+  display: inline-block;
+  width: .35em;
+  height: .35em;
+  border: .055em solid currentColor;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, currentColor .035em, transparent .04em);
+  box-shadow:
+    0 -.25em 0 -.053em currentColor,
+    0 .25em 0 -.053em currentColor,
+    -.25em 0 0 -.053em currentColor,
+    .25em 0 0 -.053em currentColor,
+    .177em -.177em 0 -.053em currentColor,
+    .177em .177em 0 -.053em currentColor,
+    -.177em -.177em 0 -.053em currentColor,
+    -.177em .177em 0 -.053em currentColor;
+}
 
 /* ── Header pipe gears (.pg = non-rotating wrapper) ────────────── */
 .pg {
@@ -1334,11 +1346,8 @@ mark {
 .pg:nth-child(4) { left: 75%; font-size: 2.4rem; }
 .pg:nth-child(5) { left: 92%; font-size: 3.2rem; }
 
-.pg:nth-child(1) > span { animation: pipe-rot-cw  17s linear infinite; }
-.pg:nth-child(2) > span { animation: pipe-rot-ccw 12s linear infinite; }
-.pg:nth-child(3) > span { animation: pipe-rot-cw  26s linear infinite; }
-.pg:nth-child(4) > span { animation: pipe-rot-ccw 12s linear infinite; }
-.pg:nth-child(5) > span { animation: pipe-rot-cw  17s linear infinite; }
+.pg:nth-child(odd)  > span { animation: spin-cw  17s linear infinite; }
+.pg:nth-child(even) > span { animation: spin-ccw 12s linear infinite; }
 
 /* ── Footer manifold gears (.fgear = flex item wrapper) ─────────── */
 .fgear {
@@ -1350,8 +1359,8 @@ mark {
   flex-shrink: 0;
   filter: drop-shadow(3px 4px 1px rgba(0,0,0,.75));
 }
-.fgear:nth-child(odd)  > span { animation: pipe-rot-cw  13s linear infinite; }
-.fgear:nth-child(even) > span { animation: pipe-rot-ccw  9s linear infinite; }
+.fgear:nth-child(odd)  > span { animation: spin-cw  13s linear infinite; }
+.fgear:nth-child(even) > span { animation: spin-ccw  9s linear infinite; }
 
 /* Post card inset rivets */
 .post-card .rivet.tl { top:  10px; left:  10px; }
@@ -1381,17 +1390,30 @@ mark {
 
 .footer-manifold-inner::before,
 .footer-manifold-inner::after {
-  content: '⚙';
+  content: '';
   font-size: .8rem;
   color: var(--gold-dark);
-  padding: .05rem .3rem;
   flex-shrink: 0;
   display: inline-block;
-  transform-origin: center center;
+  width: .35em;
+  height: .35em;
+  border: .055em solid currentColor;
+  border-radius: 50%;
+  margin: 0 .3rem;
+  background: radial-gradient(circle at 50% 50%, currentColor .035em, transparent .04em);
+  box-shadow:
+    0 -.25em 0 -.053em currentColor,
+    0 .25em 0 -.053em currentColor,
+    -.25em 0 0 -.053em currentColor,
+    .25em 0 0 -.053em currentColor,
+    .177em -.177em 0 -.053em currentColor,
+    .177em .177em 0 -.053em currentColor,
+    -.177em -.177em 0 -.053em currentColor,
+    -.177em .177em 0 -.053em currentColor;
 }
 
-.footer-manifold-inner::before { animation: gear-spin-sm  8s linear infinite; }
-.footer-manifold-inner::after  { animation: gear-spin-sm  8s linear infinite reverse; }
+.footer-manifold-inner::before { animation: spin-cw  8s linear infinite; }
+.footer-manifold-inner::after  { animation: spin-ccw 8s linear infinite; }
 
 .footer-manifold .fgear {
   margin: 0 2px;

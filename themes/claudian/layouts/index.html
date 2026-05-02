@@ -5,8 +5,8 @@
     <span class="lbracket bl"></span><span class="lbracket br"></span>
     <span class="rivet tl"></span><span class="rivet tr"></span>
     <span class="rivet bl"></span><span class="rivet br"></span>
-    <div class="hero-gear-l css-gear css-gear-spin"></div>
-    <div class="hero-gear-r css-gear css-gear-spin"></div>
+    <div class="hero-gear-l gear-cog"></div>
+    <div class="hero-gear-r gear-cog"></div>
     <h1 class="hero-title">{{ .Site.Params.heroTitle | default .Site.Title }}</h1>
     <p class="hero-sub">{{ .Site.Params.heroSub | default "技术笔记 · 个人随笔 · 游戏开发" }}</p>
     <div class="hero-ornament">✦</div>
@@ -16,9 +16,9 @@
 {{ $posts := where .Site.RegularPages "Type" "posts" }}
 {{ if $posts }}
 <div class="section-label">
-  <span class="section-label-gear css-gear css-gear-spin"></span>
+  <span class="section-label-gear gear-cog"></span>
   <span>DISPATCHES</span>
-  <span class="section-label-gear css-gear css-gear-spin"></span>
+  <span class="section-label-gear gear-cog"></span>
 </div>
 <div class="post-list">
   {{ range $posts }}
